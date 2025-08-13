@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <nav class="sidebar-nav">
+            <div class="logo">BDS Land</div>
+            <ul>
+                <li><a href="index.html"><span class="icon"><i class="fas fa-home"></i></span> Home</a></li>
+                <li><a href="apartments.html"><span class="icon"><i class="fas fa-building"></i></span> Products</a></li>
+                <li><a href="contact.html"><span class="icon"><i class="fas fa-envelope"></i></span> Contact</a></li>
+            </ul>
+            <div id="user-actions">
+                 </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="profile-header" style="background-color: #1e1e1e; border: 1px solid #2a2a2a;">
+                <div class="img-placeholder" style="background-color: #2a2a2a; border: none; width: 120px; height: 80px;">
+                    <i class="fa-regular fa-image"></i>
+                </div>
+                <h1>Personal Information Page</h1>
+            </header>
+
+            <div class="profile-main">
+                <div class="profile-content">
+                    <div class="content-column" style="background-color: #1e1e1e; border: 1px solid #2a2a2a;">
+                        <h3>Transaction history</h3>
+                        <ul>
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                            <li>Item 4</li>
+                        </ul>
+                    </div>
+                    <div class="content-column" style="background-color: #1e1e1e; border: 1px solid #2a2a2a;">
+                        <h3>Support</h3>
+                        <ul>
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                            <li>Item 4</li>
+                        </ul>
+                    </div>
+                    <div class="content-column" style="background-color: #1e1e1e; border: 1px solid #2a2a2a;">
+                        <h3>Price tracking</h3>
+                        <ul>
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                            <li>Item 4</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="profile-sidebar" style="background-color: #1e1e1e; border: 1px solid #2a2a2a;">
+                    <div class="user-card">
+                        <div class="img-placeholder" style="background-color: #2a2a2a; border: none;">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                        <p><strong>Name:</strong> <span id="profileUsername"></span></p>
+                        <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                        <button class="edit-btn" style="background-color: #444;">Edit</button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        // Script riêng cho trang profile
+        window.addEventListener('load', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn || isLoggedIn !== 'true') {
+                alert('Please log in to view this page.');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Lấy và hiển thị thông tin người dùng từ localStorage
+            document.getElementById('profileUsername').textContent = localStorage.getItem('username') || 'N/A';
+            document.getElementById('profileEmail').textContent = localStorage.getItem('email') || 'N/A';
+        });
+    </script>
+<script src="main.js"></script>
+</body>
+</html>

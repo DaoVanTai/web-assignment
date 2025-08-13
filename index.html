@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .main-content {
+            margin-left: 270px; /* Tạo không gian cho sidebar */
+            padding: 20px;
+        }
+        .header { display: flex; justify-content: space-between; align-items: center; }
+        button { padding: 8px 12px; margin: 5px; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; }
+        .add-to-cart-btn { background-color: #007bff; color: white; }
+        .apartment { border: 1px solid #ddd; padding: 15px; margin-top: 20px; border-radius: 5px; background-color: white; }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+        <div class="header">
+            <span id="welcomeMessage"></span>
+            <div>
+                <a href="cart.html"><button>Xem giỏ hàng</button></a>
+                <button id="logoutButton" class="logout-btn">Đăng xuất</button>
+            </div>
+        </div>
+        <hr>
+
+        <div class="apartment" data-name="Căn hộ cao cấp Vinhome" data-price="2.5 Tỷ VNĐ">
+            <h3>Căn hộ cao cấp Vinhome</h3>
+            <p>Giá: 2.5 Tỷ VNĐ</p>
+            <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+    
+    <script>
+        // Tự động tải sidebar.html vào div#sidebar-container
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+    </script>
+    <script src="index.js"></script>
+
+</body>
+</html>
